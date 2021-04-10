@@ -101,7 +101,7 @@ CPBL_Old_Stats <- function(year) {
     select(-NUM, -link_id, -string, -team_id, -team_name_en) %>%
     select(num, chi_name, eng_name, team, everything())
   
-  ## Gettings the standings to see how many games each teams played
+  ## Gettings the standings to see how many games each team played
   
   standings_url <- paste0("http://www.cpbl.com.tw/en/standing/year/", year, ".html")
   
