@@ -66,8 +66,10 @@ CPBL_Old_Stats <- function(year) {
   
   ## Downloading English team names and players names from database
   
-  CPBL_names <- read_csv("https://raw.githubusercontent.com/anchengyoung/CPBL_Database/master/CPBL_Names.csv")
-  CPBL_teams <- read_csv("https://raw.githubusercontent.com/anchengyoung/CPBL_Database/master/CPBL_Teams.csv")
+  CPBL_names <- read_csv("https://raw.githubusercontent.com/anchengyoung/CPBL_Database/master/CPBL_Names.csv",
+                        col_types = cols())
+  CPBL_teams <- read_csv("https://raw.githubusercontent.com/anchengyoung/CPBL_Database/master/CPBL_Teams.csv",
+                        col_types = cols())
   CPBL_names <- CPBL_names %>% select(-chi_name)
   CPBL_teams <- CPBL_teams %>% select(-team_name)
   
