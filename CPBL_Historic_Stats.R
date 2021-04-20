@@ -80,7 +80,8 @@ CPBL_Old_Stats <- function(year) {
            chi_name = str_trim(chi_name),
            string = gsub("^[^=]*=", "", link_id),
            player_id = gsub("\\&.*", "", string),
-           team_id = gsub("^[^=]*=", "", string)) %>%
+           team_id = gsub("^[^=]*=", "", string),
+           team_id = str_trim(team_id)) %>%
     left_join(CPBL_teams, by = "team_id") %>%
     left_join(CPBL_names, by = "player_id") %>%
     mutate(team = team_name_en) %>%
@@ -94,7 +95,8 @@ CPBL_Old_Stats <- function(year) {
            chi_name = str_trim(chi_name),
            string = gsub("^[^=]*=", "", link_id),
            player_id = gsub("\\&.*", "", string),
-           team_id = gsub("^[^=]*=", "", string)) %>%
+           team_id = gsub("^[^=]*=", "", string),
+           team_id = str_trim(team_id)) %>%
     left_join(CPBL_teams, by = "team_id") %>%
     left_join(CPBL_names, by = "player_id") %>%
     mutate(team = team_name_en) %>%
@@ -127,7 +129,7 @@ CPBL_Old_Stats <- function(year) {
            team = ifelse(str_sub(Team, start = -1) != "s",
                          paste0(Team, "s"), Team))
   
-  standings$TEAM[standings$TEAM == "dmedia T-REXs"] <- "T-Rex"
+  standings$team[standings$team == "dmedia T-REXs"] <- "T-Rex"
   
   Team_G <- standings %>% select("team","G") %>% rename("TeamG" = "G")
   
